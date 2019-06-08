@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>文本分类</title><link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./css/common-frame.css">
+</head>
+<body>
+	<div class="modal fade" id="onerror-modal" tabindex="-1" role="dialog" aria-labelledby="onerror-modal" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	                <h4 class="modal-title">错误</h4>
+	            </div>
+	            <div class="modal-body"><i class="fa fa-warning fa-3x pull-left" style="color: #fbcc3e;"></i><h4 class="text-muted">请输入预测文本</h4></div>
+	            <div class="modal-footer">
+	                <button type="button" class="btn" data-dismiss="modal">关闭</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="container">
+		<div class="container-top">
+			<div class="container-logo">
+				<img src="./logo.jpg" draggable="false">
+			</div>
+			<button class="container-top-left-btn" data-toggle="tab" href="#classify-by-text">文本输入分类</button>
+			<button class="container-top-right-btn" data-toggle="tab" href="#classify-by-file">文件输入分类</button>
+		</div>
+		<div class="container-main" style="height: 500px;">
+			<div class="container-inner tab-content">
+				<div id="awaiting-pane" style="display: none;">
+						<i class="fa fa-spinner fa-pulse fa-5x"></i>
+						<div style="margin: 30px"></div>
+			        	<span>正在加载模型并预测,请稍后...</span>
+			    </div>
+				<div id="classify-by-text" class="container-inner-pane tab-pane fade in active">
+					<form role="form">
+					  <div class="form-group">
+					    <label for="name">请输入预测文本</label>
+					    <textarea class="form-control" rows="13" placeholder="请将需要分类的文本按行逐句输入" id="text-query"></textarea>
+					  </div>
+					</form>
+					<div class="container-inner-row">
+						<button class="btn query-btn">开始分类</button>
+					</div>
+				</div>
+				<div id="classify-by-file" class="container-inner-pane tab-pane fade">
+					<div id="drag-and-drop-zone" class="dm-uploader">
+			            <h3 class="text-muted">拖拽文本到此区域上传(仅限tsv格式)</h3>
+			            <div class="btn upload-btn">
+			                <span>打开文件浏览器</span>
+			                <input type="file" title="点击添加文件" multiple="" id="file">
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</div>
+		<div class="container-btm">
+			<span></span>
+		</div>
+	</div>
+	<script src="./js/utils.js"></script>
+	<script src="./js/index.js"></script>
+	<script type="text/javascript" color="0,0,255" opacity='0.75' zIndex="-2" count="64" src="./js/canvas-nest.js"></script>
+</body>
+</html>
